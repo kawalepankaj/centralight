@@ -1,4 +1,4 @@
-pipeline {
+////line {
     agent any
     stages {
     stage('git pull') {
