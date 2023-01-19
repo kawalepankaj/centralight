@@ -1,6 +1,6 @@
 pipeline {
     agent {
-       label('ecs-role')
+       label('role-ecs')
     }
     stages {
     stage('git pull') {
