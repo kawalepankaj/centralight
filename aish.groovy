@@ -25,8 +25,8 @@ pipeline {
                 sudo apt-get install unzip -y
                 sudo apt install awscli -y
                 aws s3 ls
-                sudo mv /var/lib/jenkins/workspace/tomcat-server/target/studentapp-2.2-SNAPSHOT.war /tmp/student-${BUILD_ID}.war
-                aws s3 cp /tmp/student-${BUILD_ID}.war s3://tomcat-installation
+                sudo mv /var/lib/jenkins/workspace/tomcat-server/target/studentapp-2.2-SNAPSHOT.war /mnt/student-${BUILD_ID}.war
+                aws s3 cp /mnt/student-${BUILD_ID}.war s3://studentapp-arti12
                 '''
            }
         }
