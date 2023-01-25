@@ -30,7 +30,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'tomm1', keyFileVariable: 'tommm1', usernameVariable: 'ubuntu')]) {
                     sh '''
-                    ssh -i ${tommm1} -o -t StrictHostKeyChecking=no ubuntu@54.211.238.104<<EOF
+                    ssh -i ${tommm1} -o StrictHostKeyChecking=no ubuntu@54.211.238.104<<EOF
                     sudo apt-get update -y
                     sudo apt-get install unzip -y
                     sudo apt-get install default-jre -y
