@@ -34,7 +34,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'tomcat', keyFileVariable: 'tomcat', usernameVariable: 'tomcat')]) {
                     sh'''
-                    ssh -i ${tomcat} -o StrictHostKeyChecking=no ubuntu@54.236.212.244<<EOF
+                    ssh -i ${tomcat} -o StrictHostKeyChecking=no ubuntu@184.72.193.57<<EOF
                     sudo apt-get update -y
                     sudo apt-get install unzip -y
                         sudo apt-get install openjdk-11-jre -y
