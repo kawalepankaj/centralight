@@ -32,9 +32,9 @@ pipeline {
         }
         stage('tomcat-deploy'){
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: 'tomcat', keyFileVariable: 'tomcat', usernameVariable: 'tomcat')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'tom', keyFileVariable: 'tommy', usernameVariable: 'tommy')]) {
                     sh '''
-                    ssh -i ${tomcat} -o StrictHostKeyChecking=no ubuntu@184.72.193.57<<EOF
+                    ssh -i ${tommy} -o StrictHostKeyChecking=no ubuntu@34.230.46.110<<EOF
                     sudo apt-get update -y
                     sudo apt-get install unzip -y
                     sudo apt-get install openjdk-11-jre -y
