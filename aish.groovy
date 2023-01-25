@@ -34,7 +34,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'tommy1', keyFileVariable: 'tommy1', usernameVariable: 'tommy1')]) {
                     sh '''
-                    ssh -i ${tommy1} -o -t StrictHostKeyChecking=no ubuntu@44.210.125.94<<'EOT'
+                    ssh -i ${tommy1} -o -t StrictHostKeyChecking=no ubuntu@34.205.63.144<<'EOT'
                     sudo apt-get update -y
                     sudo apt-get install unzip -y
                     sudo apt-get install openjdk-11-jre -y
