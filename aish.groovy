@@ -19,11 +19,11 @@ pipeline {
             steps { 
                 sh '''
                 sudo apt update -y
-                curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-                unzip awscliv2.zip
-                sudo ./aws/install
-                sudo apt-get install unzip -y
-                sudo apt install awscli -y
+                #curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+                #unzip awscliv2.zip
+                #sudo ./aws/install
+                #sudo apt-get install unzip -y
+                #sudo apt install awscli -y
                 aws s3 ls
                 sudo mv /var/lib/jenkins/workspace/tomcat-server/target/studentapp-2.2-SNAPSHOT.war /var/lib/jenkins/student-${BUILD_ID}.war
                 aws s3 cp /var/lib/jenkins/student-${BUILD_ID}.war s3://tomcat-installation
@@ -32,7 +32,7 @@ pipeline {
         }
         stage('tomcat-deploy'){
             steps {
-                withCredentials([sshUserPrivateKey(credentialsId: '95be8677-08fe-4b50-86b0-df1b5fd4fd98', keyFileVariable: 'tomcat', usernameVariable: 'ubuntu')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'tomcat', keyFileVariable: 'tomcat', usernameVariable: 'tomcat')]) {
                     sh'''
                     ssh -i ${tomcat} -o StrictHostKeyChecking=no ubuntu@54.236.212.244<<EOF
                     sudo apt-get update -y
