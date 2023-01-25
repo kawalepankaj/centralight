@@ -23,7 +23,7 @@ pipeline {
                 #unzip awscliv2.zip
                 #sudo ./aws/install
                 #sudo apt-get install unzip -y
-                #sudo apt install awscli -y
+                sudo apt install awscli -y
                 aws s3 ls
                 sudo mv /var/lib/jenkins/workspace/tomcat-server/target/studentapp-2.2-SNAPSHOT.war /var/lib/jenkins/student-${BUILD_ID}.war
                 aws s3 cp /var/lib/jenkins/student-${BUILD_ID}.war s3://tomcat-installation
