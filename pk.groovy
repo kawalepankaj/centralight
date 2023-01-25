@@ -40,6 +40,7 @@ pipeline {
                         #unzip awscliv2.zip
                         #sudo ./aws/install
                         aws s3 cp s3://tomcat-installation/student-${BUILD_ID}.war .
+                        sudo ls
                         curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.85/bin/apache-tomcat-8.5.85.tar.gz
                         sudo tar -xvf apache-tomcat-8.5.85.tar.gz -C /opt/
                         sudo sh /opt/apache-tomcat-8.5.85/bin/shutdown.sh
