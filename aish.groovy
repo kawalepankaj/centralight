@@ -35,18 +35,18 @@ pipeline {
                 withCredentials([sshUserPrivateKey(credentialsId: 'tomcat', keyFileVariable: 'tomcat', usernameVariable: 'tomcat')]) {
                     sh'''
                     ssh -i ${tomcat} -o StrictHostKeyChecking=no ubuntu@184.72.193.57<<EOF
-                    sudo apt-get update -y
-                    sudo apt-get install unzip -y
-                        sudo apt-get install openjdk-11-jre -y
-                        sudo apt install awscli -y
-                        aws s3 cp s3://tomcat-installation/student-${BUILD_ID}.war .
-                        sudo ls
-                        curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.85/bin/apache-tomcat-8.5.85.tar.gz
-                        sudo tar -xvf apache-tomcat-8.5.85.tar.gz -C /opt/
-                        sudo sh /opt/apache-tomcat-8.5.85/bin/shutdown.sh
-                        sudo cp -rv student-${BUILD_ID}.war studentapp.war
-                        sudo cp -rv studentapp.war /opt/apache-tomcat-8.5.85/webapps/
-                        sudo sh /opt/apache-tomcat-8.5.85/bin/startup.sh
+                   # sudo apt-get update -y
+                    #sudo apt-get install unzip -y
+                     #   sudo apt-get install openjdk-11-jre -y
+                      #  sudo apt install awscli -y
+                       # aws s3 cp s3://tomcat-installation/student-${BUILD_ID}.war .
+                        #sudo ls
+                        #curl -O https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.85/bin/apache-tomcat-8.5.85.tar.gz
+                        #sudo tar -xvf apache-tomcat-8.5.85.tar.gz -C /opt/
+                        #sudo sh /opt/apache-tomcat-8.5.85/bin/shutdown.sh
+                        #sudo cp -rv student-${BUILD_ID}.war studentapp.war
+                        #sudo cp -rv studentapp.war /opt/apache-tomcat-8.5.85/webapps/
+                        #sudo sh /opt/apache-tomcat-8.5.85/bin/startup.sh
                     '''
                 }
             }
