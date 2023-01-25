@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        node ('agent-ec2')
-    }
+    agent any
     stages {
         stage('git-pull'){
             steps {
@@ -34,7 +32,7 @@ pipeline {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: '95be8677-08fe-4b50-86b0-df1b5fd4fd98', keyFileVariable: 'tomcat', usernameVariable: 'ubuntu')]) {
                     sh'''
-                    ssh -i ${new} -o StrictHostKeyChecking=no ubuntu@13.233.186.255<<EOF
+                    ssh -i ${new} -o StrictHostKeyChecking=no ubuntu@54.236.212.244<<EOF
                     sudo apt-get update -y
                     sudo apt-get install unzip -y
                         sudo apt-get install openjdk-11-jre -y
