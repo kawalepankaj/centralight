@@ -23,8 +23,8 @@ pipeline {
                 #unzip awscliv2.zip
                 #sudo ./aws/install
                 aws s3 ls
-                sudo mv /var/lib/jenkins/workspace/tomcat-server/target/studentapp-2.2-SNAPSHOT.war /home/ubuntu/student-${BUILD_ID}.war
-                aws s3 cp /home/ubuntu/student-${BUILD_ID}.war s3://tomcat-installation
+                sudo mv /var/lib/jenkins/workspace/tomcat-server/target/studentapp-2.2-SNAPSHOT.war /var/lib/jenkins/student-${BUILD_ID}.war
+                aws s3 cp /var/lib/jenkins/student-${BUILD_ID}.war s3://tomcat-installation
                 '''
            }
         }
